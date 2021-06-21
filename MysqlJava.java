@@ -2,17 +2,12 @@ package assignment.task4;
 
 import java.io.*;
 import java.util.*;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
-
 import java.sql.Statement;
-
 import java.sql.Timestamp;
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
 import java.util.Date;
 
 public class MysqlJava {
@@ -50,26 +45,24 @@ try {
 	FileWriter opobj= new FileWriter (opfName);
 	Scanner myReader = new Scanner (myObj);
 	
-	Path path = Paths.get(infName);   
+	Path path = Paths.get(infName);  
     
-	Path fileName = path.getFileName();
-	String FILENAME = fileName.toString(); 
+	Path fileName = path.getFileName(); 
+	String FILENAME = fileName.toString();  
 	   
-	while (myReader. hasNextLine()) {
+	while (myReader. hasNextLine()) 
+	{
 	
 		String data = myReader.nextLine();
 		String[] inputArray=data.split(" ");
 		 for(String s:inputArray)
-			 if(s.length()>1) 
-			 {
-				 
-				 char t= s.charAt(1);
-				 
-				
-		for(int i = 0;i<vowels.length; i++) 
+			 if(s.length()>1) {
+			 char t= s.charAt(1);
+			for(int i = 0;i<vowels.length; i++) 
 			       
 		{
-			if(t==vowels[i]) {
+			if(t==vowels[i]) 
+			{
 				opobj.write(s +" "); 
 				 Connection con=getConnection();
 				  String query = " insert into myfile (fileName,timestamp,vowelValue,word)"
@@ -77,28 +70,25 @@ try {
 				  Statement st=con.createStatement();
 				  st.execute(query);
 
-				}
-		}
-	      }
-	    }
+			 }
+		 }
+	   }
+   }
 	
-	
-		myReader.close(); 
+	    myReader.close(); 
 		opobj.close();
 	
-	} catch (Exception e) { 
+} catch (Exception e) 
+      { 
 		System.out.println("An error occurred.");
 
-	}
+	  }
 }
 
-
-
-
-public static void main(String[] args) throws Exception { 
+  public static void main(String[] args) throws Exception { 
 	createTable();
 	MysqlJava v= new MysqlJava();
 	v.readFile("C:\\Users\\krithika\\Desktop\\sampleInput.txt", "C:\\Users\\krithika\\Desktop\\sampleOutput.txt");
 
-}
+  }
 }
