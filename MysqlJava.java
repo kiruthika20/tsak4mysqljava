@@ -50,10 +50,10 @@ try {
 	FileWriter opobj= new FileWriter (opfName);
 	Scanner myReader = new Scanner (myObj);
 	
-	Path path = Paths.get(infName);   // create object of Path
+	Path path = Paths.get(infName);   
     
-	Path fileName = path.getFileName(); // call getFileName() and get FileName path object
-	String FILENAME = fileName.toString();  // storing  FileName to strinng
+	Path fileName = path.getFileName();
+	String FILENAME = fileName.toString(); 
 	   
 	while (myReader. hasNextLine()) {
 	
